@@ -1,0 +1,7 @@
+{%extends 'base.html'%} {%block content%}
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="text-slate-300 mt-3">{{form.as_p}}</div>
+  <button type="submit">tambah data</button>
+</form>
+{%endblock%}
