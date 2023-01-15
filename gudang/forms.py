@@ -11,26 +11,30 @@ class FormPreorder(ModelForm):
         exclude = ("proved_id",)
 
     widgets={
-        'produk':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'produk':forms.TextInput(attrs=
+            {
+            'class':'input-forms'
         }),
-        'bahan':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'bahan':forms.TextInput(
+            attrs={
+            'class':'input-forms'
         }),
-        'warna':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'warna':forms.TextInput(attrs=
+        {
+            'class':'input-forms'
         }),
-        'ukuran':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'ukuran':forms.TextInput(attrs=
+            {
+            'class':'input-forms'
         }),
-        'qty':forms.NumberInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'qty':forms.NumberInput(attrs={
+            'class':'input-forms'
         }),
-        'harga':forms.NumberInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'harga':forms.NumberInput(attrs={
+            'class':'input-forms'
         }),
-        'nama_penulis':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
+        'nama_penulis':forms.TextInput(attrs={
+            'class':'input-forms'
         }),
           
     }
@@ -39,27 +43,4 @@ class Formapp(ModelForm):
         model=Preorder
         fields = "__all__"
 
-    widgets={
-        'produk':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'bahan':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'warna':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'ukuran':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'qty':forms.NumberInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'harga':forms.NumberInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-        'nama_penulis':forms.TextInput({
-            'class':'bg-slate-700 w-24 h-[50px] rounded-md my-3 w-full hover:bg-slate-600 '
-        }),
-          
-    }
+  

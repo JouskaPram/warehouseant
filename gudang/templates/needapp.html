@@ -1,7 +1,64 @@
 {%extends 'base.html'%} {%block content%}
-<form action="" method="post">
-  {% csrf_token %}
-  <div class="text-slate-300 mt-3">{{form.as_p}}</div>
-  <button type="submit">tambah data</button>
-</form>
+<section class="">
+
+  <div class="mt-10 md h-9:mt-0 md:col-span-2">
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="px-10 w-[80%] py-5 bg-gray-800 sm:p-6 m-auto text-white">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label for="{{ form.produk.produk }}">Nama Produk</label>
+              {{form.produk}}
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+           <label for="{{ form.warna.warna }}">Warna</label>
+            {{form.warna}}
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <label for="{{ form.bahan.bahan }}">Nama bahan</label>
+              {{form.bahan}}
+            </div>
+
+            <div class="col-span-3">
+              <label for="{{ form.suplier_id.suplier_id }}">Nama suplier</label>
+              {{form.suplier_id}}
+            </div>
+            <div class="col-span-3">
+              <label for="{{ form.proved_id.proved_id }}">Nama Penyetuju</label>
+              {{form.proved_id}}
+            </div>
+
+            <div class="col-span-6">
+              <label for="{{ form.nama_penulis.nama_penulis }}">Nama Penulis</label>
+              {{form.nama_penulis}}
+            </div>
+
+            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+              <label for="{{ form.ukuran.ukuran }}">Ukuran</label>
+              {{form.ukuran}}
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="{{ form.harga.harga }}">Harga/pcs</label>
+              {{form.harga}}
+            </div>
+
+            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+              <label for="{{ form.qty.qty }}">Quanty</label>
+              {{form.qty}}
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3 bg-gray-800 text-right sm:px-6 w-[80%] m-auto">
+          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md h-9 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>  
 {%endblock%}

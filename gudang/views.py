@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from gudang.models import *
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 
 # Create your views here.
 def base(req):
     return render(req,'home.html')
 # template admin page
+@login_required(login_url=settings.LOGIN_URL)
 def adminpage(req):
     preorder = Preorder.objects.all()
   
@@ -16,7 +19,7 @@ def adminpage(req):
       
     }
     return render(req,'admin-page.html',konteks)
-
+@login_required(login_url=settings.LOGIN_URL)
 def getpo(req):
     preorder = Preorder.objects.all()
     row_count = Preorder.objects.count()
@@ -39,7 +42,7 @@ def addpreorder(req):
                 'form':form,
                 # 'pesan':pesan
             }
-            return render(req,'tambah-po.html',konteks)
+            return redirect('/tambahpo',konteks)
     else:
         form = FormPreorder(req.POST)
         konteks={
@@ -48,7 +51,7 @@ def addpreorder(req):
             }
     return render(req,'tambah-po.html',konteks)
 
-
+@login_required(login_url=settings.LOGIN_URL)
 def suplier(req):
     sup = Suplier.objects.all()
     konteks={
@@ -56,6 +59,7 @@ def suplier(req):
     }
     return render(req,'supplier.html',konteks)
 # update unapproved to approved
+@login_required(login_url=settings.LOGIN_URL)
 def appo(req,id_preorder):
     App = Preorder.objects.get(id=id_preorder)
     if req.POST:
@@ -75,6 +79,7 @@ def appo(req,id_preorder):
 
     return render(req,'needapp.html',konteks)
 # approved page
+@login_required(login_url=settings.LOGIN_URL)
 def getappo(req):
     status = Status.objects.all()
     konteks={
@@ -83,6 +88,7 @@ def getappo(req):
 
     return render(req,'appadmin-po.html',konteks)
 # detail approved
+@login_required(login_url=settings.LOGIN_URL)
 def detail_appo(req,id_status):
     Allappo = Status.objects.filter(id=id_status).values()
     konteks={
@@ -92,6 +98,7 @@ def detail_appo(req,id_status):
     return render(req,'detail-appo.html',konteks)
 
 # base count
+@login_required(login_url=settings.LOGIN_URL)
 def basecount(req):
     preorder = Preorder.objects.all()
     po_count = Preorder.objects.count()
@@ -104,3 +111,18 @@ def basecount(req):
         'appo_count':appo_count
     }
     return render(req,'base.html',konteks)
+
+#page awal approved
+def approved(req):
+    status = Status.objects.all()
+    konteks={
+        'status':status
+    }
+
+    return render(req,'approved.html',konteks)
+
+def delete_approved(req,id_approved):
+    approved = Status.objects.filter(id=id_approved)
+    approved.delete()
+
+    return redirect('/approved-admin/')

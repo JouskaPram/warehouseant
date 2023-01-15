@@ -15,15 +15,15 @@ class Proved(models.Model):
 
 
 class Preorder(models.Model):
-    produk = models.CharField(max_length=50)
-    bahan = models.CharField(max_length=10)
-    warna = models.CharField(max_length=30)
-    ukuran = models.CharField(max_length=30)
-    qty = models.IntegerField(null=True)
-    harga = models.IntegerField(null=True)
-    nama_penulis = models.CharField(max_length=40)
-    proved_id = models.ForeignKey(Proved,on_delete=models.CASCADE,null=True)
-    suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True)
+    produk = models.CharField(max_length=50,blank=True)
+    bahan = models.CharField(max_length=10,blank=True)
+    warna = models.CharField(max_length=30,blank=True)
+    ukuran = models.CharField(max_length=30,blank=True)
+    qty = models.IntegerField(null=True,blank=True)
+    harga = models.IntegerField(null=True,blank=True)
+    nama_penulis = models.CharField(max_length=40,blank=True)
+    proved_id = models.ForeignKey(Proved,on_delete=models.CASCADE,null=True,blank=True)
+    suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True,blank=True)
  
 
 
@@ -44,3 +44,6 @@ class Status(models.Model):
     nama_penulis = models.CharField(max_length=40)
     proved_id = models.ForeignKey(Proved,on_delete=models.CASCADE,null=True)
     suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True)
+    def jumlah(self):
+        jumlah = self.qty * self.harga
+        return jumlah

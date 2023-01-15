@@ -1,6 +1,7 @@
-{%extends 'base.html'%} {%block content%}
+{%extends 'base.html'%}
+{%block content%}
 <table class="w-full text-sm text-left  text-gray-400">
-  <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+  <thead class="text-xs uppercase bg-gray-700 text-gray-400 text-center">
     <tr class="">
       <td class="px-6 py-3">No</td>
       <td class="px-6 py-3">Produk</td>
@@ -10,13 +11,13 @@
       <td class="px-6 py-3">qty</td>
       <td class="px-6 py-3">harga</td>  
       <td class="px-6 py-3">jumlah</td>
-      <td class="px-6 py-3">Nama Penulis</td> 
-      <td class="px-6 py-3">Actions</td>
+    <td class="px-6 py-3">Nama Penulis</td> 
+      <td class="px-6 py-3 ">Actions</td>
     </tr>
   </thead>
   <tbody>
     <tr {% for po in status%} class=" bg-gray-800 border-gray-700">
-      <td class="px-6 py-4 bg-gray-800 border-gray-700">1</td>
+      <td class="px-6 py-4 bg-gray-800 border-gray-700">{{forloop.counter}}</td>
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.produk}}</td>
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.bahan}}</td>
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.warna}}</td>
@@ -25,7 +26,13 @@
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.harga}}</td>   
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.jumlah}}</td>   
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.nama_penulis}}</td>
-      <td class="px-6 py-4 bg-gray-800 border-gray-700"><a href="{%url 'detail_appo' po.id%}" class="btn btn-sm btn-info text-slate-100">Lihat</a></td>
+      <td class="px-6 py-4 bg-gray-800 border-gray-700">
+        <div class="flex gap-2">
+          <a href="{%url 'detail_appo' po.id%}" class="btn btn-sm btn-info text-slate-100">Lihat</a>
+          <a href="{%url 'deleteapproved'  po.id%}" class="btn btn-sm btn-error text-white">Delete</a>
+        </div>
+     </td>
     </tr {%endfor%}>
   </tbody>
-</table> {%endblock%}
+</table> 
+{%endblock%}
