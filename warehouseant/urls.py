@@ -16,5 +16,6 @@ urlpatterns = [
     path('invoice/<int:id_status>',detail_appo,name="detail_appo"),
     path('approved/',approved,name='approved'),
     path('masuk/',LoginView.as_view(),name="login"),
-    path('delete/approved/<int:id_approved>',delete_approved,name='deleteapproved')
+    path('delete/approved/<int:id_approved>',delete_approved,name='deleteapproved'),
+    path('keluar/',LogoutView.as_view(),name="keluar"),
 ]
