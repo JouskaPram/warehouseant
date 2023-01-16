@@ -19,4 +19,5 @@ urlpatterns = [
     path('delete/approved/<int:id_approved>',delete_approved,name='deleteapproved'),
     path('keluar/',LogoutView.as_view(),name="keluar"),
     path('tambahsuplier/',tambah_suplier,name="tambahsuplier"),
+    path('dashboard/',dashboard,name="dashboard")
 ]

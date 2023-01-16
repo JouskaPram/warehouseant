@@ -157,13 +157,30 @@ def tambah_suplier(req):
             pesan="data berhasil di tambahkan"
             konteks={
                 'form':form,
-                'pesan':pesan
+                
             }
             return redirect('/supplier/',konteks)
     else:
         form = FormSuplier(req.POST)
         konteks={
                 'form':form,
-                'pesan':pesan
+            
             }
     return render(req,'tambahsup.html',konteks)
+
+def dashboard(req):
+    preorder = Preorder.objects.all()
+    po_count = Preorder.objects.count()
+    status = Status.objects.all()
+    appo_count = Status.objects.count()
+    suplier = Suplier.objects.all()
+    suplier_count = Suplier.objects.count()
+    konteks={
+        'preorder':preorder,
+        'po_count':po_count,
+        'status':status,
+        'appo_count':appo_count,
+        'suplier':suplier,
+        'suplier_count':suplier_count
+    }
+    return render(req,'dashboard.html',konteks)
