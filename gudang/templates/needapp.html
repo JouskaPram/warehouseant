@@ -1,11 +1,30 @@
 {%extends 'base.html'%} {%block content%}
 <section class="">
-
   <div class="mt-10 md h-9:mt-0 md:col-span-2">
     <form action="" method="post">
       {% csrf_token %}
       <div class="shadow overflow-hidden sm:rounded-md">
         <div class="px-10 w-[80%] py-5 bg-gray-800 sm:p-6 m-auto text-white">
+          {% if pesan %}
+          <div class="alert alert-success shadow-lg">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>{{pesan}}</span>
+            </div>
+          </div>
+          {% endif %}
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
               <label for="{{ form.produk.produk }}">Nama Produk</label>
@@ -13,8 +32,8 @@
             </div>
 
             <div class="col-span-6 sm:col-span-3">
-           <label for="{{ form.warna.warna }}">Warna</label>
-            {{form.warna}}
+              <label for="{{ form.warna.warna }}">Warna</label>
+              {{form.warna}}
             </div>
 
             <div class="col-span-6 sm:col-span-4">
@@ -32,7 +51,9 @@
             </div>
 
             <div class="col-span-6">
-              <label for="{{ form.nama_penulis.nama_penulis }}">Nama Penulis</label>
+              <label for="{{ form.nama_penulis.nama_penulis }}"
+                >Nama Penulis</label
+              >
               {{form.nama_penulis}}
             </div>
 
@@ -53,12 +74,15 @@
           </div>
         </div>
         <div class="px-4 py-3 bg-gray-800 text-right sm:px-6 w-[80%] m-auto">
-          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md h-9 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button
+            type="submit"
+            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md h-9 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
             Save
           </button>
         </div>
       </div>
     </form>
   </div>
-</section>  
+</section>
 {%endblock%}

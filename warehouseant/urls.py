@@ -15,7 +15,8 @@ urlpatterns = [
     path('approved-admin/',getappo,name='getappo'),
     path('invoice/<int:id_status>',detail_appo,name="detail_appo"),
     path('approved/',approved,name='approved'),
-    path('masuk/',LoginView.as_view(),name="login"),
+    path('masuk/',LoginView.as_view(),name="masuk"),
     path('delete/approved/<int:id_approved>',delete_approved,name='deleteapproved'),
     path('keluar/',LogoutView.as_view(),name="keluar"),
+    path('tambahsuplier/',tambah_suplier,name="tambahsuplier"),
 ]

@@ -2,8 +2,8 @@ from django.db import models
 from django.db.models import F , ExpressionWrapper, FloatField
 # Create your models here.
 class Suplier(models.Model):
-    nama_suplier=models.CharField(max_length=40)
-    datasup = models.TextField()
+    nama_suplier=models.CharField(max_length=40,blank=True)
+    datasup = models.TextField(blank=True)
     def __str__(self):
         return self.nama_suplier
 
@@ -23,7 +23,7 @@ class Preorder(models.Model):
     harga = models.IntegerField(null=True,blank=True)
     nama_penulis = models.CharField(max_length=40,blank=True)
     proved_id = models.ForeignKey(Proved,on_delete=models.CASCADE,null=True,blank=True)
-    suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True,blank=True)
+    suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True,related_name='suplier',blank=True)
  
 
 
@@ -45,5 +45,5 @@ class Status(models.Model):
     proved_id = models.ForeignKey(Proved,on_delete=models.CASCADE,null=True)
     suplier_id =models.ForeignKey(Suplier,on_delete=models.CASCADE,null=True)
     def jumlah(self):
-        jumlah = self.qty * self.harga
-        return jumlah
+         return self.qty * self.harga
+        

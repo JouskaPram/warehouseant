@@ -1,120 +1,171 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" data-theme="night">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antarestar</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antarestar</title>
 
-  <link
-  href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css"
-  rel="stylesheet"
-  type="text/css"
-/>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  p{
-    color: white;
-  }
-  input {
-    margin-top: 0.25rem;
-    width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-    border: 1px solid #828282;
-    background-color: #4b5563;
-    color: #111827;
-    border-radius: 0.25rem;
-    height: 2.25rem;
-}
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      p {
+        color: white;
+      }
+      input {
+        margin-top: 0.25rem;
+        width: 100%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+          0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        border: 1px solid #828282;
+        background-color: #4b5563;
+        color: #111827;
+        border-radius: 0.25rem;
+        height: 2.25rem;
+      }
 
-input:focus {
-    color: white;
-    border: #4b5563;
-    background-color: transparent;
-}
-input:active{
-  background-color: transparent;
-}
+      input:focus {
+        color: white;
+        border: #4b5563;
+        background-color: transparent;
+      }
+      input:active {
+        background-color: transparent;
+      }
 
-@media (min-width: 640px) {
-    input {
-        font-size: 0.75rem;
-    }
-}
-label{
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #d1d5db;
-}
-select {
-    margin-top: 1rem;
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    border: 1px solid #dcdfe3;
-    background-color: #4b5563;
-    border-radius: 0.25rem;
-    height: 2.25rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
+      @media (min-width: 640px) {
+        input {
+          font-size: 0.75rem;
+        }
+      }
+      label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #d1d5db;
+      }
+      select {
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid #dcdfe3;
+        background-color: #4b5563;
+        border-radius: 0.25rem;
+        height: 2.25rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
 
-select:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 0.125rem #667eea;
-}
+      select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.125rem #667eea;
+      }
 
-@media (min-width: 640px) {
-    select {
-        font-size: 0.875rem;
-    }
-}
-#id_username{
-  background-color: #1f2937;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-#id_password{
-  background-color: #1f2937;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-</style>
-</head>
-<body>
-  <nav class=" px-2 sm:px-4 py-2.5 bg-gray-900 fixed w-full z-20 top-0 left-0 border-b  border-gray-600">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="https://flowbite.com/" class="flex items-center">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
-        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Antarestar</span>
-    </a>
-    <div class="flex md:order-2">
-        <a href="{%url 'login'%}" class="btn-info btn text-white">Login</a>
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none focus:ring-2 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-      </button>
-    </div>
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md: bg-gray-800 md:bg-gray-900 border-gray-700">
-        <li>
-          <a href="{%url 'base' %}" class="block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent md:p-0 text-gray-200" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="{%url 'tambahpo'%}" class="block py-2 pl-3 pr-4 rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0  text-gray-200 hover:bg-gray-700 hover:text-white  border-gray-700">Tambah Preorder</a>
-        </li>
-        <li>
-          <a href="{%url 'approved'%}" class="block py-2 pl-3 pr-4 text-gray-200 rounded  md:hover:text-blue-700 md:p-0   hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Approved</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-200 rounded  md:hover:text-blue-700 md:p-0   hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Contact</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
-  {%block content%}
-  {%endblock%}
-</body>
+      @media (min-width: 640px) {
+        select {
+          font-size: 0.875rem;
+        }
+      }
+      #id_username {
+        background-color: #1f2937;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      #id_password {
+        background-color: #1f2937;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="px-2 sm:px-4 py-2.5 bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-600"
+    >
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
+        <a href="https://flowbite.com/" class="flex items-center">
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-6 mr-3 sm:h-9"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-xl font-semibold whitespace-nowrap text-white"
+            >Antarestar</span
+          >
+        </a>
+        <div class="flex md:order-2">
+          <a href="{%url 'masuk'%}" class="btn-info btn text-white">Login</a>
+          <button
+            data-collapse-toggle="navbar-sticky"
+            type="button"
+            class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 hover:bg-gray-700 focus:ring-gray-600"
+            aria-controls="navbar-sticky"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-sticky"
+        >
+          <ul
+            class="flex flex-col p-4 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md: bg-gray-800 md:bg-gray-900 border-gray-700"
+          >
+            <li>
+              <a
+                href="{%url 'base' %}"
+                class="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-gray-200"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="{%url 'tambahpo'%}"
+                class="block py-2 pl-3 pr-4 rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 text-gray-200 hover:bg-gray-700 hover:text-white border-gray-700"
+                >Tambah Preorder</a
+              >
+            </li>
+            <li>
+              <a
+                href="{%url 'approved'%}"
+                class="block py-2 pl-3 pr-4 text-gray-200 rounded md:hover:text-blue-700 md:p-0 hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+                >Approved</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-gray-200 rounded md:hover:text-blue-700 md:p-0 hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {%block content%} {%endblock%}
+  </body>
 </html>

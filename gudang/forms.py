@@ -43,4 +43,9 @@ class Formapp(ModelForm):
         model=Preorder
         fields = "__all__"
 
+class FormSuplier(ModelForm):
+    class Meta:
+        model=Suplier
+        fields = "__all__"
+
   

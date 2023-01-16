@@ -1,4 +1,74 @@
-<ul {% for app in Allappo %}>
+<!-- <ul {% for app in Allappo %}>
   <li>{{app.produk}}</li>
   <li>{{app.qty}}</li>
-</ul {%endfor%}>
+</ul {%endfor%}> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>invoice antarestar</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="flex w-[90%] m-auto flex-warp justify-between px-10 mt-5 border-t-2 border-gray-700"
+    >
+      <div class="w-full mt-5">
+        {%load static%}
+        <img
+          src="{% static 'img/logo-3.png'%}"
+          width="120px"
+          height="100px"
+          alt=""
+        />
+        <h3 class="text-sm font-bold">PT. ANTARESTAR GLOBAL KREATIFINDO</h3>
+        <h3 class="text-sm font-bold">
+          Ruko Mega Boulevar=d Block RV2 No. 07D
+        </h3>
+        <h3 class="text-sm font-bold">Bekasi Utara, Harapan Indah</h3>
+        <p class="text-sm font-bold">Email: antarestaradv@gmail.com</p>
+        <p class="text-sm font-bold">CP: 0816-707-454</p>
+      </div>
+      <!-- <div class="w-1/4 mt-5 tab-content">
+        <h3 class="text-sky-600 uppercase text-sm font-bold">Purchase Order</h3>
+        <h3>tgl po :</h3>
+        <h3>Vendor : {{app.ukuran}}</h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+      </div> -->
+    </div>
+    <div class="w-[90%] m-auto mt-10">
+      <table class="w-full border border-slate-900" border="1" {% for app in Allappo %}>
+        <thead >
+          <tr
+            class="uppercase font-bold text-center py-3 bg-red-300 text-slate-900"
+          >
+            <td>NO</td>
+            <td>Produk</td>
+            <td>bahan</td>
+            <td>warna</td>
+            <td>ukuran</td>
+            <td>qty</td>
+            <td>harga</td>
+            <!-- <td>jumlah</td> -->
+          </tr>
+        </thead>
+        <tbody class="uppercase font-semibold text-center py-3 text-slate-900">
+          <td>{{forloop.counter}}</td>
+          <td>{{app.produk}}</td>
+          <td>{{app.bahan}}</td>
+          <td>{{app.warna}}</td>
+          <td>{{app.ukuran}}</td>
+          <td>{{app.qty}}</td>
+          <td>Rp.{{app.harga}}</td>
+          <!-- <td>Rp.{{jumlah}}</td> -->
+        </tbody>
+      </table {%endfor%}>
+    </div>
+  </body>
+</html>

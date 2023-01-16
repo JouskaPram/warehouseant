@@ -119,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 LOGIN_REDIRECT_URL = 'adminpage'
-LOGIN_URl = 'masuk'
+LOGIN_URl = 'masuk/'
 LOGOUT_REDIRECT_URL = 'base'
 
 # Default primary key field type

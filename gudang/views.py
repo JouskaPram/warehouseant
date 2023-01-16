@@ -10,7 +10,7 @@ from django.conf import settings
 def base(req):
     return render(req,'home.html')
 # template admin page
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url='masuk')
 def adminpage(req):
     preorder = Preorder.objects.all()
   
@@ -19,7 +19,7 @@ def adminpage(req):
       
     }
     return render(req,'admin-page.html',konteks)
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url='masuk')
 def getpo(req):
     preorder = Preorder.objects.all()
     row_count = Preorder.objects.count()
@@ -37,21 +37,21 @@ def addpreorder(req):
         if form.is_valid:
             form.save()
             form=FormPreorder()
-            # pesan="data berhasil di tambahkan"
+            pesan="data berhasil di tambahkan"
             konteks={
                 'form':form,
-                # 'pesan':pesan
+                'pesan':pesan,
             }
-            return redirect('/tambahpo',konteks)
+            return render(req,'tambah-po.html',konteks)
     else:
         form = FormPreorder(req.POST)
         konteks={
                 'form':form,
-                # 'pesan':pesan
+                
             }
     return render(req,'tambah-po.html',konteks)
 
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url='masuk')
 def suplier(req):
     sup = Suplier.objects.all()
     konteks={
@@ -59,7 +59,9 @@ def suplier(req):
     }
     return render(req,'supplier.html',konteks)
 # update unapproved to approved
-@login_required(login_url=settings.LOGIN_URL)
+
+
+@login_required(login_url='masuk')
 def appo(req,id_preorder):
     App = Preorder.objects.get(id=id_preorder)
     if req.POST:
@@ -68,18 +70,27 @@ def appo(req,id_preorder):
             data = form.cleaned_data
             Status.objects.create(produk=data['produk'],bahan=data['bahan'],warna=data['warna'],ukuran=data['ukuran'],qty=data['qty'],harga=data['harga'],nama_penulis=data['nama_penulis'],proved_id=data['proved_id'],
             suplier_id=data['suplier_id'])
-            Preorder.objects.all().delete()
-            return redirect('preorder')
+            Preorder.objects.filter(id=id_preorder).delete()
+            pesan='data berhasil di ubah'
+            konteks ={
+            'pesan':pesan,
+            'form':form,
+            'App':App,
+                }
+            
+            return render(req,'needapp.html',konteks)
+            
     else:
         form = Formapp(instance=App)
         konteks ={
+         
             'form':form,
             'App':App,
         }
 
     return render(req,'needapp.html',konteks)
 # approved page
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url='masuk')
 def getappo(req):
     status = Status.objects.all()
     konteks={
@@ -88,17 +99,21 @@ def getappo(req):
 
     return render(req,'appadmin-po.html',konteks)
 # detail approved
-@login_required(login_url=settings.LOGIN_URL)
+
 def detail_appo(req,id_status):
+    # author = Suplier.objects.get(nama_suplier='irfan')
     Allappo = Status.objects.filter(id=id_status).values()
+    jumlah = Status.objects.annotate(sum_fields=F('harga') * F('qty'))
     konteks={
-        'Allappo':Allappo
+        'Allappo':Allappo,
+        'jumlah':jumlah
+       
     }
 
     return render(req,'detail-appo.html',konteks)
 
 # base count
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url='masuk')
 def basecount(req):
     preorder = Preorder.objects.all()
     po_count = Preorder.objects.count()
@@ -124,5 +139,31 @@ def approved(req):
 def delete_approved(req,id_approved):
     approved = Status.objects.filter(id=id_approved)
     approved.delete()
+    pesan = "delete berhasil di lakukan"
+    konteks={
+        'pesan':pesan
+    }
 
-    return redirect('/approved-admin/')
+    return render(req,'appadmin-po.html',konteks)
+
+# tambah suplier
+@login_required(login_url='masuk')
+def tambah_suplier(req):
+    if req.POST:
+        form = FormSuplier(req.POST)
+        if form.is_valid:
+            form.save()
+            form=FormSuplier()
+            pesan="data berhasil di tambahkan"
+            konteks={
+                'form':form,
+                'pesan':pesan
+            }
+            return redirect('/supplier/',konteks)
+    else:
+        form = FormSuplier(req.POST)
+        konteks={
+                'form':form,
+                'pesan':pesan
+            }
+    return render(req,'tambahsup.html',konteks)

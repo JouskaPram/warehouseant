@@ -13,62 +13,76 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        p{
-    color: white;
-  }
-  input {
-    margin-top: 0.25rem;
-    width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-    border: 1px solid #828282;
-    background-color: #4b5563;
-    color: #111827;
-    border-radius: 0.25rem;
-    height: 2.25rem;
-}
+      p {
+        color: white;
+      }
+      input {
+        margin-top: 0.25rem;
+        width: 100%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+          0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        border: 1px solid #828282;
+        background-color: #4b5563;
+        color: #111827;
+        border-radius: 0.25rem;
+        height: 2.25rem;
+      }
 
-input:focus {
-    color: white;
-    border: #4b5563;
-    background-color: transparent;
-}
-input:active{
-  background-color: transparent;
-}
+      input:focus {
+        color: white;
+        border: #4b5563;
+        background-color: transparent;
+      }
+      input:active {
+        background-color: transparent;
+      }
 
-@media (min-width: 640px) {
-    input {
-        font-size: 0.75rem;
-    }
-}
-label{
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #d1d5db;
-}
-select {
-    margin-top: 1rem;
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    border: 1px solid #dcdfe3;
-    background-color: #4b5563;
-    border-radius: 0.25rem;
-    height: 2.25rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
+      @media (min-width: 640px) {
+        input {
+          font-size: 0.75rem;
+        }
+      }
+      label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #d1d5db;
+      }
+      select {
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 1px solid #dcdfe3;
+        background-color: #4b5563;
+        border-radius: 0.25rem;
+        height: 2.25rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
 
-select:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 0.125rem #667eea;
-}
+      select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.125rem #667eea;
+      }
 
-@media (min-width: 640px) {
-    select {
+      @media (min-width: 640px) {
+        select {
+          font-size: 0.875rem;
+        }
+      }
+      textarea {
+        padding: 2.5px;
+        width: 100%;
         font-size: 0.875rem;
-    }
-}
+        color: #333;
+        background-color: #4b5563;
+        border-radius: 4px;
+      }
+      textarea:focus {
+        color: white;
+        border: #4b5563;
+        background-color: transparent;
+      }
     </style>
   </head>
   <body>
@@ -217,7 +231,7 @@ select:focus {
                   class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6"
                 >
                   <a
-                    href="javascript:void(0)"
+                    href="{%url 'tambahsuplier' %}"
                     class="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
                   >
                     <svg
@@ -635,7 +649,7 @@ select:focus {
                   class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6"
                 >
                   <a
-                    href="javascript:void(0)"
+                    href="{%url 'tambahsuplier'%}"
                     class="flex items-center focus:outline-none focus:ring-2 focus:ring-white"
                   >
                     <svg
