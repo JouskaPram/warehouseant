@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%block content%}
+<h3 class="text-center font-semibold text-gray-100 text-xl mt-10">Approved Preorder</h3>
 {% if pesan %}
      <div class="alert alert-error shadow-lg mb-10">
   <div>
@@ -36,8 +37,8 @@
       <td class="px-6 py-4 bg-gray-800 border-gray-700">{{po.nama_penulis}}</td>
       <td class="px-6 py-4 bg-gray-800 border-gray-700">
         <div class="flex gap-2">
-          <a href="{%url 'detail_appo' po.id%}" class="btn btn-sm btn-info text-slate-100">Lihat</a>
-          <a href="{%url 'deleteapproved'  po.id%}" class="btn btn-sm btn-error text-white">Delete</a>
+          <a href="{%url 'detail_appo' po.id%}" class="btn btn-sm btn-info text-slate-100"><i class="fa-solid fa-eye"></i></a>
+          <a href="{%url 'deleteapproved'  po.id%}" class="btn btn-sm btn-error text-white"><i class="fa-solid fa-trash"></i></a>
         </div>
      </td>
     </tr {%endfor%}>

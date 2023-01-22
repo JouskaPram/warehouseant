@@ -6,7 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Antarestar</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@2.46.1/dist/full.css"
       rel="stylesheet"
@@ -14,6 +23,9 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      body {
+        font-family: "Electrolize", sans-serif;
+      }
       p {
         color: white;
       }
@@ -90,19 +102,16 @@
       <div
         class="container flex flex-wrap items-center justify-between mx-auto"
       >
-        <a href="https://flowbite.com/" class="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            class="h-6 mr-3 sm:h-9"
-            alt="Flowbite Logo"
-          />
+        <a href="https://Antarestar.com/" class="flex items-center">
           <span
             class="self-center text-xl font-semibold whitespace-nowrap text-white"
             >Antarestar</span
           >
         </a>
         <div class="flex md:order-2">
-          <a href="{%url 'masuk'%}" class="btn-info btn text-white">Login</a>
+          <a href="{%url 'masuk'%}" class="btn-primary btn btn-sm text-white"
+            >Login</a
+          >
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"

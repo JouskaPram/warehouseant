@@ -150,20 +150,39 @@ def delete_approved(req,id_approved):
 @login_required(login_url='masuk')
 def tambah_suplier(req):
     if req.POST:
-        form = FormSuplier(req.POST)
+        form = FormSuplier(req.POST,req.FILES)
         if form.is_valid:
             form.save()
             form=FormSuplier()
             pesan="data berhasil di tambahkan"
             konteks={
                 'form':form,
-                'pesan':pesan
+                
             }
             return redirect('/supplier/',konteks)
     else:
         form = FormSuplier(req.POST)
         konteks={
                 'form':form,
-                'pesan':pesan
+            
             }
     return render(req,'tambahsup.html',konteks)
+
+def dashboard(req):
+    preorder = Preorder.objects.all()
+    po_count = Preorder.objects.count()
+    status = Status.objects.all()
+    appo_count = Status.objects.count()
+    suplier = Suplier.objects.all()
+    suplier_count = Suplier.objects.count()
+    sup = Suplier.objects.all()
+    konteks={
+        'preorder':preorder,
+        'po_count':po_count,
+        'status':status,
+        'appo_count':appo_count,
+        'suplier':suplier,
+        'suplier_count':suplier_count,
+        'sup':sup
+    }
+    return render(req,'dashboard.html',konteks)

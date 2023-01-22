@@ -1,19 +1,30 @@
 {%extends 'base.html'%} {%block content%}
-<div class="mt-10 md h-9:mt-0 md:col-span-2">
+<div class="mt-5 md h-9:mt-0 md:col-span-2">
    
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {%csrf_token%}
     <div class=" overflow-hidden  ">
       <div class="px-10 w-[50%] py-5 bg-gray-800 sm:p-6 m-auto text-white rounded-md">
-         <h3 class="text-center font-bold text-gray-200 text-3xl my-3">Tambah Suplier</h3>
+         <h3 class="text-center font-bold text-gray-200 text-2xl my-1">Tambah Suplier</h3>
         <div class="grid  gap-6">
             <div>            
                 <label for="{{ form.nama_suplier.nama_suplier }}">Nama suplier</label>
-              {{form.nama_suplier}}
+              
+
+                  {{form.nama_suplier}}
+              
             </div>
             <div>            
                 <label for="{{ form.datasup.datasup }}">Data Suplier</label>
               {{form.datasup}}
+            </div>
+            <div>            
+                <label for="{{ form.nomor_wa.nomor_wa }}">Nomor Whatsapp</label>
+              {{form.nomor_wa}}
+            </div>
+            <div  class="block mb-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" >            
+             
+              {{form.cover}}
             </div>
       </div>
       <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md h-9 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-3">Tambah Suplier</button>

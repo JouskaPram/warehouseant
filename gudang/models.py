@@ -4,6 +4,8 @@ from django.db.models import F , ExpressionWrapper, FloatField
 class Suplier(models.Model):
     nama_suplier=models.CharField(max_length=40,blank=True)
     datasup = models.TextField(blank=True)
+    nomor_wa = models.IntegerField(blank=True)
+    cover = models.ImageField(upload_to="media/cover/",null=True)
     def __str__(self):
         return self.nama_suplier
 
